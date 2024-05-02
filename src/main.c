@@ -17,14 +17,10 @@ bool compare(char user_pass[]){
 
 // Déclare une fonction qui trouve et affiche les caractères communs dans le bon ordre entre le mot de passe entré par l'utilisateur et le mot de passe stocké
 void element_commun(char user_pass[]){
-    int i, j; // Déclare deux variables de type entier pour les boucles
+    int i; // Déclare une variable de type entier pour la boucle
     printf("Les caracteres communs dans le bon ordre sont : "); // Affiche un message
     for(i = 0; i < strlen(password); i++){ // Parcourt chaque caractère du mot de passe stocké
-        for(j = 0; j < strlen(user_pass); j++){ // Parcourt chaque caractère du mot de passe entré par l'utilisateur
-            if(password[i] == user_pass[j] && i == j){ // Si le caractère actuel du mot de passe stocké est le même que le caractère actuel du mot de passe entré par l'utilisateur et qu'ils sont à la même position
-                printf("%c ", password[i]); // Affiche le caractère commun
-            }
-        }
+        printf("%c ", (i < strlen(user_pass) && password[i] == user_pass[i]) ? password[i] : '_'); // Affiche le caractère commun si il y en a un, sinon affiche un X
     }
     printf("\n"); // Passe à la ligne suivante
 }
